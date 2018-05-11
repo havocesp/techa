@@ -3,8 +3,8 @@ from setuptools import find_packages, setup
 
 setup(
         name='techa',
-        version='v0.0.4',
-        requires=['pandas', 'tabulate', 'numpy', 'defopt'],
+        version='v0.0.5',
+        requires=['pandas'],
         packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
         package_dir={'techa': 'techa'},
         url='http://github.com/havocesp/techa',
@@ -21,5 +21,5 @@ setup(
             'Programming Language :: Python :: 3.2',
             'Programming Language :: Python :: 3.3',
             'Programming Language :: Python :: 3.4',
-        ], install_requires=['pandas', 'tabulate', 'numpy', 'defopt']
+        ], install_requires=['pandas']
 )
