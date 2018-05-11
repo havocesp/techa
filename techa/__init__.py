@@ -2,63 +2,70 @@
 """
 Python Technical Analysis library
 """
-import talib
-from collections import OrderedDict
-from pprint import pprint
+import os
+import sys
 
-from talib.abstract import *
-from finta import TA
 
-from momentum import Momentum
-from overlap import Overlap
-from pattern import Pattern
-from statistic import Statistic
-from volatility import Volatility
-from volume import Volume
-from cycle import Cycle
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(BASE_DIR)
+from core import TaLib
 
-__package__ = 'ta'
+
 __author__ = 'Daniel J. Umpierrez'
-__version__ = '0.0.1'
+__version__ = '0.0.4'
 
-__all__ = ['TaLib', 'Statistic', 'Momentum', 'Volatility', 'Cycle', 'Pattern', 'Volume', 'TA']
+__all__ = ['TaLib']
 
-# https://github.com/ranaroussi/qtpylib
-
-
-class TaLib(TA, Momentum, Overlap, Pattern, Statistic, Volume, Cycle, Volatility):
+def ASI(df, L):
     """
-    Technical Analysis Library
+    Accumulation Swing Index (J. Welles Wilder)
+    source: book: New Concepts in Technical Trading Systems
     """
+    asi_list = []
+    si_list = SI(df, L)
+    i = 0
+    while i < len(df['close']):
+        if i < 1:
+            asi = float('NaN')
+            asi_list.append(asi)
+            asi = .0
+        else:
+            asi = asi + si_list[i]
+            asi_list.append(asi)
+        i += 1
+    return asi_list
 
-    @classmethod
-    def get_groups(cls):
-        groups = OrderedDict().fromkeys(sorted([grp for grp in cls.__dict__ if grp[0].isupper()]))
-        for grp in groups:
-            groups.update({grp: [fn for fn in cls.__dict__[grp].__dict__ if fn[0].isupper()]})
-        return groups
-
-
-    @classmethod
-    def get_functions(cls):
-        result = list()
-        for grp in cls.get_groups().values():
-            result.extend(grp)
-        return sorted(result)
-
-if __name__ == '__main__':
-    # pprint(sorted([f for f in TA.__dict__.keys() if f[0].isupper()]))
-    ta_func_list = [f for f in TA.__dict__ if f[0].isupper()]
-    # TODO SMM SMMA PERCENT_B DMI MI VZO APZ
-    talib_func_list = talib.get_functions()
-    # for func in ta_func_list:
-    #     if func not in talib_func_list and func not in ['KST', 'VWAP', 'FISH', 'ER', 'ZLEMA', 'QSTICK', 'TSI', 'VORTEX', 'EMV', 'WTO', 'EBBP' , 'HMA', 'VAMA', 'PIVOTS', 'CFI', 'WOBV', 'COPP', 'ICHIMOKU', 'CHAIKIN', 'BASP', 'BASPN', 'BUYP', 'SELLP', 'BUYPN', 'SELLPN', 'AO', 'UO', 'WILLIAMS', 'STOCHD', 'CHANDELIER', 'EFI', 'DO', 'KC', 'IFT_RSI', 'TP', 'ADL', 'TR']:
-    #         print(func)
-    for fn in sorted(talib.get_functions()):
-        params = Function(fn).parameters
-        if len(params):
-            print(fn, ': ', *['{} = {}'.format(k, v) for k, v in params.items()])
-
-    # for fn in [f for f in TA.__dict__ if f.isupper()]:
-    #
-    #     print(getattr(TA, fn).__doc__)
+def SI(df, L):
+    """
+    Swing Index (J. Welles Wilder)
+    source: book: New Concepts in Technical Trading Systems
+    """
+    si_list = []
+    i = 0
+    while i < len(df['close']):
+        if i < 1:
+            si = float('NaN')
+        else:
+            N = (df['close'][i] - df['close'][i - 1]) + (.5 * (df['close'][i] - df['open'][i])) + (
+                    .25 * (df['close'][i - 1] - df['open'][i - 1]))
+            R1 = df['high'][i] - df['close'][i - 1]
+            R2 = df['low'][i] - df['close'][i - 1]
+            R3 = df['high'][i] - df['low'][i]
+            if R1 > R2 and R1 > R3:
+                R = (df['high'][i] - df['close'][i - 1]) - (.5 * (df['low'][i] - df['close'][i - 1])) + (
+                        .25 * (df['close'][i - 1] - df['open'][i - 1]))
+            if R2 > R1 and R2 > R3:
+                R = (df['low'][i] - df['close'][i - 1]) - (.5 * (df['high'][i] - df['close'][i - 1])) + (
+                        .25 * (df['close'][i - 1] - df['open'][i - 1]))
+            if R3 > R1 and R3 > R2:
+                R = (df['high'][i] - df['low'][i]) + (.25 * (df['close'][i - 1] - df['open'][i - 1]))
+            K1 = df['high'][i] - df['close'][i - 1]
+            K2 = df['low'][i] - df['close'][i - 1]
+            if K1 > K2:
+                K = K1
+            else:
+                K = K2
+            si = 50 * (N / R) * (K / L)
+        si_list.append(si)
+        i += 1
+    return si_list

@@ -1,14 +1,25 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 
 setup(
-        name='python-ta',
-        version='0.0.1',
-        packages=[''],
-        package_dir={'': 'ta'},
-        url='http://github.com/havocesp/python-ta',
+        name='techa',
+        version='v0.0.4',
+        requires=['pandas', 'tabulate', 'numpy', 'defopt'],
+        packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+        package_dir={'techa': 'techa'},
+        url='http://github.com/havocesp/techa',
         license='MIT',
         author='Daniel J. Umpierrez',
         author_email='',
-        description='Technical Analysis Library'
+        description='TECHA: Technical Analysis Library',
+        classifiers=[
+            'Development Status :: 4 - Beta',
+            'Intended Audience :: Developers',
+            'Topic :: Software Development :: Open source library with some useful routines.',
+            'License :: OSI Approved :: MIT License',
+            'Programming Language :: Python :: 3',
+            'Programming Language :: Python :: 3.2',
+            'Programming Language :: Python :: 3.3',
+            'Programming Language :: Python :: 3.4',
+        ], install_requires=['pandas', 'tabulate', 'numpy', 'defopt']
 )

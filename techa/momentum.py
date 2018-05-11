@@ -3,27 +3,262 @@ Momentum Indicators
 """
 import pandas as pd
 from finta import TA
-from talib.abstract import *
+from talib.abstract import Function
+
+from overlap import Overlap
+from volatility import Volatility
 
 
 class Momentum:
     """
     Momentum Indicators
     """
-    MI = TA.MI # Mass Index
-    COPP = TA.COPP  # Coppock Curve
-    VZO = TA.VZO # VZO
-    KST = TA.KST  # Know Sure Thing
-    TSI = TA.TSI  # True Stregth Index
-    EFI = TA.EFI  # Elder Force Index
-    IFT_RSI = TA.IFT_RSI
-    BASP = TA.BASP  # buy and sell pressure
-    BASPN = TA.BASPN  # buy and sell pressure normalized
-    UO = TA.UO  # ultimate oscillator
-    CFI = TA.CFI  # Cumulative Force Index.
-    EBBP = TA.EBBP  # Bull power and bear power
-    EMV = TA.EMV  # Ease of Movement
-    WTO = TA.WTO  # Wave Trend Oscillator
+
+
+    @classmethod
+    def MI(cls, data, period=9):
+        """
+        Mass Index
+        MI uses the high-low range to identify trend reversals based on range expansions.
+
+        In this sense, the Mass Index is a volatility indicator that does not have a directional bias.
+
+        Instead, the Mass Index identifies range bulges that can foreshadow a reversal of the current trend.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int period: period used for indicator calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.MI(data, period=period)
+
+
+    @classmethod
+    def COPP(cls, data):
+        """
+        Coppock Curve
+
+        COPP is a momentum indicator, it signals buying opportunities when the indicator moved from negative territory
+        to positive territory.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.COPP(data)
+
+
+    @classmethod
+    def VZO(cls, data, period=14):
+        """
+        VZO
+
+        VZO uses price, previous price and moving averages to compute its oscillating value.
+
+        It is a leading indicator that calculates buy and sell signals based on oversold / overbought conditions.
+
+        Oscillations between the 5% and 40% levels mark a bullish trend zone, while oscillations between -40% and 5%
+        mark a bearish trend zone.
+
+        Meanwhile, readings above 40% signal an overbought condition, while readings above 60% signal an extremely
+        overbought condition.
+
+        Alternatively, readings below -40% indicate an oversold condition, which becomes extremely oversold below -60%.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int period: period used for indicator calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.VZO(data, period)
+
+
+    @classmethod
+    def KST(cls, data, r1=10, r2=15, r3=20, r4=30):
+        """
+        Know Sure Thing
+
+        KST is a momentum oscillator based on the smoothed rate-of-change for four different time frames.
+
+        KST measures price momentum for four different price cycles. It can be used just like any momentum oscillator.
+
+        Chartists can look for divergences, overbought/oversold readings, signal line crossovers and center-line
+        crossovers.
+
+        :param pd.DataFrame data:  pandas DataFrame with open, high, low, close data
+        :param int r1: period used at first ROC calculation
+        :param int r2: period used at second ROC calculation
+        :param int r3: period used at third ROC calculation
+        :param int r4: period used at last ROC calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.KST(data, r1, r2, r3, r4)
+
+
+    @classmethod
+    def TSI(cls, data, long=25, short=13, signal=13):
+        """
+        True Strength Index
+
+        TSI is a momentum oscillator based on a double smoothing of price changes.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int long: long period used for indicator calculation
+        :param int short: short period used for indicator calculation
+        :param int signal: signal period used for indicator calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.TSI(data, long, short, signal)
+
+
+    @classmethod
+    def EFI(cls, data, period=13):
+        """
+        Elder Force Index
+
+        EFI is an indicator that uses price and volume to assess the power behind a move or identify possible turning
+        points.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int period: period used for indicator calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.EFI(data, period=period)
+
+
+    @classmethod
+    def IFT_RSI(cls, data, rsi_period=14, wma_period=9):
+        """
+        Modified Inverse Fisher Transform applied on RSI.
+
+        Suggested method to use any IFT indicator is to buy when the indicator crosses over –0.5 or crosses over +0.5
+
+        if it has not previously crossed over –0.5 and to sell short when the indicators crosses under +0.5 or crosses
+        under –0.5 if it has not previously crossed under +0.5.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int rsi_period: pandas DataFrame with open, high, low, close data
+        :param int wma_period: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.IFT_RSI(data, rsi_period, wma_period)
+
+
+    @classmethod
+    def BASP(cls, data, period=40):
+        """
+        Buy and Sell Pressure
+
+        BASP indicator serves to identify buying and selling pressure.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int period: period used for indicator calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.BASP(data, period)
+
+
+    @classmethod
+    def BASPN(cls, data, period=40):
+        """
+        Buy and Sell Pressure Normalized
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int period: period used for indicator calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.BASPN(data, period)
+
+
+    @classmethod
+    def UO(cls, data):
+        """
+        Ultimate Oscillator
+
+        UO is a momentum oscillator designed to capture momentum across three different time frames.
+
+        The multiple time frame objective seeks to avoid the pitfalls of other oscillators.
+
+        Many momentum oscillators surge at the beginning of a strong advance and then form bearish divergence as the
+        advance continues.
+
+        This is because they are stuck with one time frame. The Ultimate Oscillator attempts to correct this fault by
+        incorporating longer time frames into the basic formula.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.UO(data)
+
+
+    @classmethod
+    def CFI(cls, data):
+        """
+        Cumulative Force Index.
+
+        Adopted from  Elder's Force Index (EFI).
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.CFI(data)
+
+
+    @classmethod
+    def EBBP(cls, data):
+        """
+        Bull power and bear power by Dr. Alexander Elder
+
+        EBBP show where today’s high and low lie relative to the a 13-day EMA
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.EBBP(data)
+
+
+    @classmethod
+    def EMV(cls, data, period=14):
+        """
+        Ease of Movement
+
+        EMV is a volume-based oscillator that fluctuates above and below the zero line.
+
+        As its name implies, it is designed to measure the "ease" of price movement.
+
+        Prices are advancing with relative ease when the oscillator is in positive territory.
+
+        Conversely, prices are declining with relative ease when the oscillator is in negative territory.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int period: period used for indicator calculation
+        :return:pd.Series: with indicator data calculation results
+        """
+        return TA.EMV(data, period)
+
+
+    @classmethod
+    def WTO(cls, data, channel_length=10, average_length=21):
+        """
+        Wave Trend Oscillator
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int channel_length: channel length value
+        :param int average_length: average length value
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.WTO(data, channel_length, average_length)
+
+
+    @classmethod
+    def STOCHD(cls, data, period=3):
+        """
+        Stochastic Oscillator %D
+
+        STOCH %D is a 3 period simple moving average of %K.
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :param int period: period used for indicator calculation
+        :return pd.Series: with indicator data calculation results
+        """
+        return TA.STOCHD(data, period)
 
 
     @classmethod
@@ -39,79 +274,169 @@ class Momentum:
         An extremely strong trend is indicated by readings above 50
 
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-        :param int period:
+        :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('ADX')(data, timeperiod=period)
+        temp_df = pd.DataFrame()
+        temp_df['up_move'] = data['high'].diff()
+        temp_df['down_move'] = data['low'].diff()
+
+        positive_dm = []
+        negative_dm = []
+
+        for row in temp_df.itertuples():
+            if row.up_move > row.down_move and row.up_move > 0:
+                positive_dm.append(row.up_move)
+            else:
+                positive_dm.append(0)
+            if row.down_move > row.up_move and row.down_move > 0:
+                negative_dm.append(row.down_move)
+            else:
+                negative_dm.append(0)
+
+        temp_df['positive_dm'] = positive_dm
+        temp_df['negative_dm'] = negative_dm
+
+        atr = Volatility.ATR(data, period=period * 6)
+
+        dir_plus = pd.Series(100 * (temp_df['positive_dm'] / atr).ewm(span=period, min_periods=period - 1).mean())
+
+        dir_minus = pd.Series(100 * (temp_df['negative_dm'] / atr).ewm(span=period, min_periods=period - 1).mean())
+        return pd.concat([dir_plus, dir_minus])
+        # fn = Function('ADX')
+        # return fn(data, period)
 
 
     @classmethod
     def ADXR(cls, data, period=14):
         """
+        Average Directional Movement Index Rating
 
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('ADXR')(data, timeperiod=period)
+        fn = Function('ADXR')
+        return fn(data, period)
 
 
     @classmethod
-    def APO(cls, data, fast_period=12, slow_period=26, ma_type=0):
+    def IMI(cls, data):
         """
+        Intraday Momentum Index
+
+        source: http://www.fmlabs.com/reference/default.htm?url=IMI.htm
+        """
+        imi_list = []
+        upsum = .0
+        downsum = .0
+        i = 0
+        while i < len(data['close']):
+            if data['close'][i] > data['open'][i]:
+                upsum = upsum + (data['close'][i] - data['open'][i])
+            else:
+                downsum = downsum + (data['open'][i] - data['close'][i])
+            imi = 100 * (upsum / (upsum + downsum))
+            imi_list.append(imi)
+            i += 1
+        return imi_list
+
+
+    @classmethod
+    def APO(cls, data, fast_period=12, slow_period=26, ma_type=0, price='close'):
+        """
+        Absolute Price Oscillator
 
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-        :param int period: period used for indicator calculation
+        :param int fast_period: fast period used for indicator calculation
+        :param int slow_period: slow period used for indicator calculation
+        :param int ma_type: moving average type (0 simple, 1 exponential)
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('APO')(data, fastperiod=fast_period, slowperiod=slow_period, matype=ma_type)
+
+        apo_list = []
+        i = 0
+        while i < len(data[price]):
+            if i + 1 < slow_period:
+                apo = float('NaN')
+            else:
+                start_fast = i + 1 - fast_period
+                end = i + 1
+                sma_fast = Overlap.MA(data[price][start_fast:end], period=fast_period, ma_type=ma_type)
+                start_slow = i + 1 - slow_period
+                end = i + 1
+                sma_slow = Overlap.MA(data[price][start_slow:end], period=slow_period, ma_type=ma_type)
+                apo = sma_slow - sma_fast
+            #            apo *= -1
+            apo_list.append(apo)
+            i += 1
+        return pd.Series(apo_list, name='APO')
+
+        # fn = Function('APO')
+        # return fn(data, fastperiod=fast_period, slowperiod=slow_period, matype=ma_type)
 
 
     @classmethod
     def AROON(cls, data, period=14):
         """
         Aroon indicator
-        TODO
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int period: period used for indicator calculation
-        :return pd.Series: with indicator data calculation results
+        :return pd.Series: up and down indicators from data calculation
         """
-        return globals().get('AROON')(data, timeperiod=period)
+        fn = Function('AROON')
+        return fn(data, period)
 
 
     @classmethod
     def AROONOSC(cls, data, period=14):
         """
         Aroon Oscillator
-        TODO
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('AROONOSC')(data, timeperiod=period)
+        fn = Function('AROONOSC')
+        return fn(data, period)
 
 
     @classmethod
     def BOP(cls, data):
         """
-        TODO
+        Balance of Power Indicator
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('BOP')(data)
+        fn = Function('BOP')
+        return fn(data)
 
 
     @classmethod
     def CCI(cls, data, period=14):
         """
         Commodity Index Channel
-        TODO
+
+        CCI is a versatile indicator that can be used to identify a new trend or warn of extreme conditions.
+
+        CCI measures the current price level relative to an average price level over a given period of time.
+
+        The CCI typically oscillates above and below a zero line. Normal oscillations will occur within the range of
+        +100 and −100.
+
+        Readings above +100 imply an overbought condition, while readings below −100 imply an oversold condition.
+
+        As with other overbought/oversold indicators, this means that there is a large probability that the price will
+        correct to more representative levels.
 
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('CCI')(data, timeperiod=period)
+        fn = Function('CCI')
+        return fn(data, period)
 
 
     @classmethod
@@ -129,22 +454,25 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('CMO')(data, timeperiod=period)
+        fn = Function('CMO')
+        return fn(data, period)
 
 
     @classmethod
     def DX(cls, data, period=14):
         """
-        TODO
+        Directional Movement Index
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-        :param kwargs: period used for indicator calculation
+        :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('DX')(data, timeperiod=period)
+        fn = Function('DX')
+        return fn(data, period)
 
 
     @classmethod
-    def MACD(cls, data, slow_period=10, fast_period=21, signal=9):
+    def MACD(cls, data, slow_period=10, fast_period=21, signal=9, price='close'):
         """
         Moving Average Convergence Divergence
 
@@ -176,11 +504,26 @@ class Momentum:
         :param int signal: period used for signal calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('MACD')(data, fastperiod=fast_period, slowperiod=slow_period, signalperiod=signal)
+        ema_fast = pd.Series(data[price].ewm(ignore_na=False,
+                                             min_periods=fast_period - 1, span=fast_period).mean(), index=data.index)
+
+        ema_slow = pd.Series(data[price].ewm(ignore_na=False,
+                                             min_periods=slow_period - 1, span=slow_period).mean(), index=data.index)
+
+        macd_series = pd.Series(ema_fast - ema_slow, index=data.index, name='macd')
+
+        macd_signal_series = macd_series.ewm(ignore_na=False, span=signal).mean()
+
+        macd_signal_series = pd.Series(macd_signal_series, index=data.index, name='macd_signal')
+        macd_df = pd.concat([macd_signal_series, macd_series], axis=1)
+
+        return pd.DataFrame(macd_df)
+        # fn = Function('MACD')
+        # return fn(data, fastperiod=fast_period, slowperiod=slow_period, signalperiod=signal)
 
 
     @classmethod
-    def MACDEXT(ls, data, fast_period=12, fast_ma_type=0, slow_period=26, slow_ma_type=0, signal_period=9,
+    def MACDEXT(cls, data, fast_period=12, fast_ma_type=0, slow_period=26, slow_ma_type=0, signal_period=9,
                 signal_ma_type=0):
         """
         Moving Average Convergence Divergence Extended
@@ -194,21 +537,24 @@ class Momentum:
         :param int signal_ma_type: signal moving average type (0 simple, 1 exponential)
         :return pd.Series: with indicator data calculation results with indicator data calculation results
         """
-        return globals().get('MACDEXT')(data, fastperiod=fast_period, fastmatype=fast_ma_type, slowperiod=slow_period,
-                                        slowmatype=slow_ma_type, signalperiod=signal_period,
-                                        signalmatype=signal_ma_type)
+        fn = Function('MACDEXT')
+        return fn(data, fastperiod=fast_period, fastmatype=fast_ma_type,
+                  slowperiod=slow_period,
+                  slowmatype=slow_ma_type, signalperiod=signal_period,
+                  signalmatype=signal_ma_type)
 
 
     @classmethod
     def MACDFIX(cls, data, signal_period=9):
         """
-        Moving Average Convergence Divergence
-        TODO
+        Moving Average Convergence/Divergence Fix 12/26
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int signal_period: period used for signal calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('MACDFIX')(data, signalperiod=signal_period)
+        fn = Function('MACDFIX')
+        return fn(data, signalperiod=signal_period)
 
 
     @classmethod
@@ -229,20 +575,21 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('MFI')(data, timeperiod=period)
+        fn = Function('MFI')
+        return fn(data, period)
 
 
     @classmethod
     def MINUS_DI(cls, data, period=14):
         """
-        Minus Directional Index indicator
+        Minus Directional indicator
 
-        TODO
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('MINUS_DI')(data, timeperiod=period)
+        fn = Function('MINUS_DI')
+        return fn(data, period)
 
 
     @classmethod
@@ -263,7 +610,8 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('MINUS_DM')(data, timeperiod=period)
+        fn = Function('MINUS_DM')
+        return fn(data, period)
 
 
     @classmethod
@@ -281,19 +629,21 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('MOM')(data, timeperiod=period)
+        fn = Function('MOM')
+        return fn(data, period)
 
 
     @classmethod
     def PLUS_DI(cls, data, period=14):
         """
         Plus Directional Index indicator
-        TODO
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('PLUS_DI')(data, timeperiod=period)
+        fn = Function('PLUS_DI')
+        return fn(data, period)
 
 
     @classmethod
@@ -313,20 +663,23 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('PLUS_DM')(data, timeperiod=period)
+        fn = Function('PLUS_DM')
+        return fn(data, period)
 
 
     @classmethod
     def PPO(cls, data, fast_period=12, slow_period=26, ma_type=0):
         """
-        TODO
+        Percentage Price Oscillator
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int fast_period: fast period used for indicator calculation
         :param int slow_period: slow period used for indicator calculation
         :param int ma_type: moving average type (0 simple, 1 exponential)
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('PPO')(data, fastperiod=fast_period, slowperiod=slow_period, matype=ma_type)
+        fn = Function('PPO')
+        return fn(data, fastperiod=fast_period, slowperiod=slow_period, matype=ma_type)
 
 
     @classmethod
@@ -342,7 +695,8 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('ROC')(data, timeperiod=period)
+        fn = Function('ROC')
+        return fn(data, period)
 
 
     @classmethod
@@ -354,7 +708,8 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('ROCP')(data, timeperiod=period)
+        fn = Function('ROCP')
+        return fn(data, period)
 
 
     @classmethod
@@ -366,22 +721,25 @@ class Momentum:
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('ROCR')(data, timeperiod=period)
+        fn = Function('ROCR')
+        return fn(data, period)
 
 
     @classmethod
     def ROCR100(cls, data, period=10):
         """
         Rate of Change as 100 percentage
+
         :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
         :param int period: period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('ROCR100')(data, timeperiod=period)
+        fn = Function('ROCR100')
+        return fn(data, period)
 
 
     @classmethod
-    def RSI(cls, data, period=14):
+    def RSI(cls, data, period=14, price='close'):
         """
         Relative Strength Index
 
@@ -390,7 +748,7 @@ class Momentum:
         RSI oscillates between zero and 100. Traditionally, and according to Wilder, RSI is considered overbought when
         above 70 and oversold when below 30.
 
-        Signals can also be generated by looking for divergences, failure swings and centerline crossovers.
+        Signals can also be generated by looking for divergences, failure swings and center-line crossovers.
 
         RSI can also be used to identify the general trend.
 
@@ -398,10 +756,31 @@ class Momentum:
         :param int period: period used for indicator calculation period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('RSI')(data, timeperiod=period)
+        rsi_series = pd.DataFrame(index=data.index)
+        gain = [0]
+        loss = [0]
 
+        for row, shifted_row in zip(data[price], data[price].shift(-1)):
+            if row - shifted_row > 0:
+                gain.append(row - shifted_row)
+                loss.append(0)
+            elif row - shifted_row < 0:
+                gain.append(0)
+                loss.append(abs(row - shifted_row))
+            elif row - shifted_row == 0:
+                gain.append(0)
+                loss.append(0)
 
-    STOCHD = TA.STOCHD
+        rsi_series['gain'] = gain
+        rsi_series['loss'] = loss
+
+        avg_gain = rsi_series['gain'].rolling(window=period).mean()
+        avg_loss = rsi_series['loss'].rolling(window=period).mean()
+        relative_strength = avg_gain / avg_loss
+        rsi_ = 100 - (100 / (1 + relative_strength))
+        return pd.Series(rsi_, index=data.index, name='RSI')
+        # fn = Function('RSI')
+        # return fn(data, period)
 
 
     @classmethod
@@ -423,8 +802,10 @@ class Momentum:
         :param int slowd_ma_type: slow D moving average type (0 simple, 1 exponential)
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('STOCH')(data, fastk_period=fastk_period, slowk_period=slowk_period,
-                                      slowk_matype=slowk_ma_type, slowd_matype=slowd_ma_type, slowd_period=slowd_period)
+        fn = Function('STOCH')
+        return fn(data, fastk_period=fastk_period, slowk_period=slowk_period,
+                  slowk_matype=slowk_ma_type, slowd_matype=slowd_ma_type,
+                  slowd_period=slowd_period)
 
 
     @classmethod
@@ -438,8 +819,9 @@ class Momentum:
         :param int fastd_ma_type: fast D moving average type (0 simple, 1 exponential)
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('STOCHF')(data, fastk_period=fastk_period, fastd_period=fastd_period,
-                                       fastd_ma_type=fastd_ma_type)
+        fn = Function('STOCHF')
+        return fn(data, fastk_period=fastk_period, fastd_period=fastd_period,
+                  fastd_ma_type=fastd_ma_type)
 
 
     @classmethod
@@ -454,14 +836,17 @@ class Momentum:
         :param int fastd_ma_type: fast D moving average type (0 simple, 1 exponential)
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('STOCHRSI')(data, timeperiod=period, fastk_period=fastk_period, fastd_period=fastd_period,
-                                         fastd_ma_type=fastd_ma_type)
+        fn = Function('STOCHRSI')
+        return fn(data, period, fastk_period=fastk_period,
+                  fastd_period=fastd_period,
+                  fastd_ma_type=fastd_ma_type)
 
 
     @classmethod
     def TRIX(cls, data, period=30):
         """
         Triple Exponential Moving Average Oscillator
+
         The TRIX is a momentum indicator that oscillates around zero.
 
         It displays the percentage rate of change between two triple smoothed exponential moving averages.
@@ -473,7 +858,8 @@ class Momentum:
         :param int period: period used for indicator calculation period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('TRIX')(data, timeperiod=period)
+        fn = Function('TRIX')
+        return fn(data, period)
 
 
     @classmethod
@@ -497,7 +883,8 @@ class Momentum:
         :param int period3: third period used for indicator calculation period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('ULTOSC')(data, timeperiod1=period1, timeperiod2=period2, timeperiod3=period3)
+        fn = Function('ULTOSC')
+        return fn(data, timeperiod1=period1, timeperiod2=period2, timeperiod3=period3)
 
 
     @classmethod
@@ -519,4 +906,19 @@ class Momentum:
         :param int period: period used for indicator calculation period used for indicator calculation
         :return pd.Series: with indicator data calculation results
         """
-        return globals().get('WILLR')(data, timeperiod=period)
+        willr_list = []
+        i = 0
+        close, high, low = data['close'], data['high'], data['low']
+        while i < len(close):
+            if i + 1 < period:
+                willr = float('NaN')
+            else:
+                start = i + 1 - period
+                end = i + 1
+                willr = (max(high[start:end]) - close[i]) / (max(high[start:end]) - min(low[start:end])) * 100
+            #            willr *= -1
+            willr_list.append(willr)
+            i += 1
+        return willr_list
+        # fn = Function('WILLR')
+        # return fn(data, period)

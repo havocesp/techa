@@ -1,0 +1,4 @@
+pandas=>23.0rc3
+tabulate
+numpy=>1.14.3
+defopt

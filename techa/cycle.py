@@ -1,8 +1,9 @@
 """
 Cycle Indicators
 """
-from finta import TA
-from talib.abstract import *
+import pandas as pd
+from talib.abstract import Function
+
 
 class Cycle:
     """
@@ -14,61 +15,69 @@ class Cycle:
     def HT_DCPERIOD(cls, data):
         """
         Hilbert Transform - Dominant Cycle Period
-        :param data:
-        :param kwargs:
-        :return:
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
         """
-        return globals().get('HT_DCPERIOD')(data)
+        fn = Function('HT_DCPERIOD')
+        return fn(data)
 
 
     @classmethod
     def HT_DCPHASE(cls, data):
         """
         Hilbert Transform - Dominant Cycle Phase
-        :param data:
-        :param kwargs:
-        :return:
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
         """
-        return globals().get('HT_DCPHASE')(data)
+        fn = Function('HT_DCPHASE')
+        return fn(data)
 
 
     @classmethod
     def HT_PHASOR(cls, data):
         """
         Hilbert Transform - In-Phase Indicator
-        :param data:
-        :param kwargs:
-        :return:
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
         """
-        return globals().get('HT_PHASOR')(data)
+        fn = Function('HT_PHASOR')
+        return fn(data)
 
 
     @classmethod
     def HT_SINE(cls, data):
         """
-        Hilbert Transform - Sinewave Indicator
-        :param data:
-        :param kwargs:
-        :return:
+        Hilbert Transform - SineWave Indicator
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
         """
-        return globals().get('HT_SINE')(data)
+        fn = Function('HT_SINE')
+        return fn(data)
 
 
     @classmethod
     def HT_TRENDMODE(cls, data):
         """
-        Hilbert Transform - Market Mode
-        :param data:
-        :param kwargs:
-        :return:
+        Hilbert Transform - Trend vs Cycle Mode
+
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
         """
-        return globals().get('HT_TRENDMODE')(data)
+        fn = Function('HT_TRENDMODE')
+        return fn(data)
 
 
     @classmethod
     def WCLPRICE(cls, data):
-        return globals().get('WCLPRICE')(data)
+        """
+        Weighted Close Price
 
-
-if __name__ == '__main__':
-    print()
+        :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+        :return pd.Series: with indicator data calculation results
+        """
+        fn = Function('WCLPRICE')
+        return fn(data)
