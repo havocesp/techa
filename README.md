@@ -2,7 +2,7 @@
 Collection of Technical Analysis Functions
 
  * __Author:__ Daniel J. Umpierrez
- * __Version:__ 0.0.4
+ * __Version:__ 0.0.6
  * __License:__ MIT
 
 ## Description

@@ -1,13 +1,30 @@
 # -*- coding:utf-8 -*-
-from collections import OrderedDict
+import talib
 
-from cycle import Cycle
-from momentum import Momentum
-from overlap import Overlap
-from pattern import Pattern
-from statistic import Statistic
-from volatility import Volatility
-from volume import Volume
+import cycle
+import experimental
+import momentum
+import overlap
+import pattern
+import prices
+import statistic
+import volatility
+import volume
+
+# from cycle import *
+# from momentum import *
+# from overlap import *
+# from pattern import *
+# from statistic import *
+# from volatility import *
+# from experimental import *
+# from prices import *
+# from volume import *
+
+_function_list = [f for f in
+                  (*cycle.__all__, *momentum.__all__, *overlap.__all__, *volatility.__all__, *pattern.__all__,
+                   *statistic.__all__, *experimental.__all__, *prices.__all__) if f[0].isupper()]
+__all__ = ['TaLib']
 
 
 # noinspection SpellCheckingInspection
@@ -17,23 +34,21 @@ class TaLib:
     """
 
     _groups_ref = {
-        'Cycle Indicators':      'Cyl',
-        'Momentum Indicators':   'Mom',
-        'Overlap studies':       'Ovlap',
-        'Patter Recognition':    'Pattr',
-        'Statistic Functions':   'Stat',
-        'Volume Indicators':     'Vol',
-        'Volatility Indicators': 'Volat'
+        'cycle': cycle.__all__,
+        'momentum': momentum.__all__,
+        'overlap': overlap.__all__,
+        'patter': pattern.__all__,
+        'statistic': statistic.__all__,
+        'volume': volatility.__all__,
+        'volatility': experimental.__all__,
+        'price': prices.__all__,
+        'experimental': volume.__all__
     }
 
-    Volat = Volatility
-    Olap = Overlap
-    Mom = Momentum
-    Cycl = Cycle
-    Vol = Volume
-    Pattr = Pattern
-    Stat = Statistic
-
+    @classmethod
+    def calculate_indicator(cls, indicator, *args, **kwargs):
+        fn = globals().get(indicator)
+        return fn(*args, **kwargs)
 
     @classmethod
     def get_groups(cls):
@@ -42,11 +57,17 @@ class TaLib:
 
         :return: groups names
         """
-        groups = OrderedDict().fromkeys(sorted([grp for grp in cls.__dict__ if grp[0].isupper()]))
-        for grp in groups:
-            groups.update({grp: [fn for fn in cls.__dict__[grp].__dict__ if fn[0].isupper()]})
-        return groups
 
+        return sorted([*cls._groups_ref])
+
+    @classmethod
+    def get_talib_groups(cls):
+        """
+        Just return groups names
+
+        :return: groups names
+        """
+        return sorted([*talib.get_function_groups().keys()])
 
     @classmethod
     def get_functions(cls):
@@ -55,34 +76,18 @@ class TaLib:
 
         :return: all functions supported by this lib
         """
-        result = list()
-        for grp in cls.get_groups().values():
-            result.extend(grp)
-        return sorted(result)
 
+        return sorted(sum(cls._groups_ref.values(), []))
 
     @classmethod
-    def get_function_group(cls, name, display_name=False):
+    def get_talib_functions(cls):
         """
-        Get functions grouped by type
+        Return all functions supported by this lib
 
-        :param str name: function name
-        :param bool display_name: if True, full names will be show instead shorted ones
-        :return: functions grouped by type
+        :return: all functions supported by this lib
         """
-        name = str(name).upper()
-        if name in cls.get_functions():
-            if name in cls.Pattr.__dict__:
-                return cls.Pattr.__name__ if display_name is True else 'Pattr'
-            elif name in cls.Mom.__dict__:
-                return cls.Mom.__name__ if display_name is True else 'Mom'
-            elif name in cls.Olap.__dict__:
-                return cls.Olap.__name__ if display_name is True else 'Olap'
-            elif name in cls.Vol.__dict__:
-                return cls.Vol.__name__ if display_name is True else 'Vol'
-            elif name in cls.Cycl.__dict__:
-                return cls.Cycl.__name__ if display_name is True else 'Cycl'
-            elif name in cls.Stat.__dict__:
-                return cls.Stat.__name__ if display_name is True else 'Stat'
-            elif name in cls.Volat.__dict__:
-                return cls.Volat.__name__ if display_name is True else 'Volat'
+        return sorted([*talib.get_function_groups().values()])
+
+
+if __name__ == '__main__':
+    print(TaLib.get_functions())

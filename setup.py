@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
         name='techa',
-        version='v0.0.5',
+    version='v0.0.6',
         requires=['pandas'],
         packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
         package_dir={'techa': 'techa'},

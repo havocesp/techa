@@ -5,67 +5,81 @@ Python Technical Analysis library
 import os
 import sys
 
+import cycle
+import experimental
+import momentum
+import overlap
+import pattern
+import prices
+import statistic
+import volatility
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(BASE_DIR)
-from core import TaLib
-
 
 __author__ = 'Daniel J. Umpierrez'
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 
-__all__ = ['TaLib']
+__all__ = (*cycle.__all__, *momentum.__all__, *overlap.__all__, *volatility.__all__, *pattern.__all__,
+           *statistic.__all__, *experimental.__all__, *prices.__all__, 'ASI', 'SI')
 
-def ASI(df, L):
+
+def ASI(data, l):
     """
     Accumulation Swing Index (J. Welles Wilder)
     source: book: New Concepts in Technical Trading Systems
     """
     asi_list = []
-    si_list = SI(df, L)
+    si_list = SI(data, l)
     i = 0
-    while i < len(df['close']):
+    asi = .0
+    while i < len(data['close']):
         if i < 1:
             asi = float('NaN')
             asi_list.append(asi)
             asi = .0
         else:
-            asi = asi + si_list[i]
+            asi += si_list[i]
             asi_list.append(asi)
         i += 1
     return asi_list
 
-def SI(df, L):
+
+def SI(data, l):
     """
     Swing Index (J. Welles Wilder)
-    source: book: New Concepts in Technical Trading Systems
+    From "New Concepts in Technical Trading Systems"
+
+    :param pd.DataFrame data:
+    :param l:
+    :return:
     """
     si_list = []
     i = 0
-    while i < len(df['close']):
+    while i < len(data['close']):
         if i < 1:
             si = float('NaN')
         else:
-            N = (df['close'][i] - df['close'][i - 1]) + (.5 * (df['close'][i] - df['open'][i])) + (
-                    .25 * (df['close'][i - 1] - df['open'][i - 1]))
-            R1 = df['high'][i] - df['close'][i - 1]
-            R2 = df['low'][i] - df['close'][i - 1]
-            R3 = df['high'][i] - df['low'][i]
-            if R1 > R2 and R1 > R3:
-                R = (df['high'][i] - df['close'][i - 1]) - (.5 * (df['low'][i] - df['close'][i - 1])) + (
-                        .25 * (df['close'][i - 1] - df['open'][i - 1]))
-            if R2 > R1 and R2 > R3:
-                R = (df['low'][i] - df['close'][i - 1]) - (.5 * (df['high'][i] - df['close'][i - 1])) + (
-                        .25 * (df['close'][i - 1] - df['open'][i - 1]))
-            if R3 > R1 and R3 > R2:
-                R = (df['high'][i] - df['low'][i]) + (.25 * (df['close'][i - 1] - df['open'][i - 1]))
-            K1 = df['high'][i] - df['close'][i - 1]
-            K2 = df['low'][i] - df['close'][i - 1]
-            if K1 > K2:
-                K = K1
+            n = (data['close'][i] - data['close'][i - 1]) + (.5 * (data['close'][i] - data['open'][i])) + (
+                    .25 * (data['close'][i - 1] - data['open'][i - 1]))
+            r1 = data['high'][i] - data['close'][i - 1]
+            r2 = data['low'][i] - data['close'][i - 1]
+            r3 = data['high'][i] - data['low'][i]
+            if r1 > r2 and r1 > r3:
+                r = (data['high'][i] - data['close'][i - 1]) - (.5 * (data['low'][i] - data['close'][i - 1])) + (
+                        .25 * (data['close'][i - 1] - data['open'][i - 1]))
+            if r2 > r1 and r2 > r3:
+                r = (data['low'][i] - data['close'][i - 1]) - (.5 * (data['high'][i] - data['close'][i - 1])) + (
+                        .25 * (data['close'][i - 1] - data['open'][i - 1]))
+            if r3 > r1 and r3 > r2:
+                r = (data['high'][i] - data['low'][i]) + (.25 * (data['close'][i - 1] - data['open'][i - 1]))
+            k1 = data['high'][i] - data['close'][i - 1]
+            k2 = data['low'][i] - data['close'][i - 1]
+            if k1 > k2:
+                k = k1
             else:
-                K = K2
-            si = 50 * (N / R) * (K / L)
+                k = k2
+            si = 50 * (n / r) * (k / l)
         si_list.append(si)
         i += 1
     return si_list
