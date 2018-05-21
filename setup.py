@@ -1,15 +1,16 @@
 from setuptools import find_packages, setup
 
+from techa import __version__, __author__, __package__
 
 setup(
         name='techa',
-    version='v0.0.6',
+    version='v' + __version__,
         requires=['pandas'],
         packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
         package_dir={'techa': 'techa'},
-        url='http://github.com/havocesp/techa',
+    url='http://github.com/havocesp/' + __package__,
         license='MIT',
-        author='Daniel J. Umpierrez',
+    author=__author__,
         author_email='',
         description='TECHA: Technical Analysis Library',
         classifiers=[
@@ -21,5 +22,5 @@ setup(
             'Programming Language :: Python :: 3.2',
             'Programming Language :: Python :: 3.3',
             'Programming Language :: Python :: 3.4',
-        ], install_requires=['pandas']
+        ], install_requires=['pandas', 'finta']
 )

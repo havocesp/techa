@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
-from cycle import WCLPRICE
-from prices import TYPPRICE, AVGPRICE, MEDPRICE
+import techa as ta
+
+# from techa.cycle import WCLPRICE
+# from techa.prices import TYPPRICE, AVGPRICE, MEDPRICE
 
 __all__ = ['SAVGP', 'SAVGPS', 'SCO', 'SCOS', 'SMEDP', 'SMEDPS', 'SPP', 'SPPS', 'STYPP', 'STYPPS', 'SWCLP', 'SWCLPS']
 
@@ -8,14 +10,14 @@ __all__ = ['SAVGP', 'SAVGPS', 'SCO', 'SCOS', 'SMEDP', 'SMEDPS', 'SPP', 'SPPS', '
 def SAVGP(data):
     """
     Swing Average Price
-    
+
     Previous Average Price.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
     savgp_list = []
-    average_price_list = AVGPRICE(data)
+    average_price_list = ta.AVGPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:
@@ -30,9 +32,9 @@ def SAVGP(data):
 def SAVGPS(data):
     """
     Swing Average Price
-    
+
     Previous Average Price Summation.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -55,9 +57,9 @@ def SAVGPS(data):
 def SCO(data):
     """
     Swing Close
-    
+
     Open.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -73,9 +75,9 @@ def SCO(data):
 def SCOS(data):
     """
     Swing Close
-     
+
     Open Summation.
-     
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -93,15 +95,15 @@ def SCOS(data):
 def SMEDP(data):
     """
     Swing Median Price
-    
+
     Previous Median Price.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
 
     smedp_list = []
-    median_price = MEDPRICE(data)
+    median_price = ta.MEDPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:
@@ -116,9 +118,9 @@ def SMEDP(data):
 def SMEDPS(data):
     """
     Swing Median Price
-    
+
     Previous Median Price Summation.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -141,11 +143,11 @@ def SMEDPS(data):
 def SPP(data, price='close'):
     """
     Swing Price
-    
+
     Previous Price
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :param str price: 
+    :param str price:
     :return pd.Series: with indicator data calculation results
     """
     spp_list = []
@@ -163,9 +165,9 @@ def SPP(data, price='close'):
 def SPPS(data, price='close'):
     """
     Swing Price
-    
+
     Previous Price Summation.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :param str price: column used for indicator calculation (default = "close")
     :return pd.Series: with indicator data calculation results
@@ -188,15 +190,15 @@ def SPPS(data, price='close'):
 
 def STYPP(data):
     """
-    Swing Typical Price 
-    
+    Swing Typical Price
+
     Previous Typical Price
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
     stypp_list = []
-    typical_price = TYPPRICE(data)
+    typical_price = ta.TYPPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:
@@ -211,9 +213,9 @@ def STYPP(data):
 def STYPPS(data):
     """
     Swing Typical Price
-    
+
     Previous Typical Price Summation.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -236,14 +238,14 @@ def STYPPS(data):
 def SWCLP(data):
     """
     Swing Weighted Close Price
-    
+
     Previous Weighted Close Price
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
     swclp_list = []
-    weighted_close_price = WCLPRICE(data)
+    weighted_close_price = ta.WCLPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:
@@ -258,9 +260,9 @@ def SWCLP(data):
 def SWCLPS(data):
     """
     Swing Weighted Close Price
-    
+
     Previous Weighted Close Price Summation.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """

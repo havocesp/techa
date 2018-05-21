@@ -8,13 +8,6 @@ from talib.abstract import Function
 __all__ = ['AD', 'WOBV', 'ADOSC', 'OBV']
 
 
-#
-# class Volume:
-#     """
-#     Volume Indicators
-#     """
-
-
 def AD(data):
     """
     Accumulation Distribution Line Indicator
@@ -90,5 +83,3 @@ def OBV(data):
         obv_list.append(obv)
         i += 1
     return pd.Series(obv_list, name='OBV')
-    # fn = Function('OBV')
-    # return fn(data)

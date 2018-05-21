@@ -9,7 +9,10 @@ from talib.abstract import Function
 from overlap import MA
 from volatility import ATR
 
-__all__ = ['MI']
+__all__ = ['ADX', 'ADXR', 'APO', 'AROON', 'AROONOSC', 'ATR', 'BASP', 'BASPN', 'BOP', 'CCI', 'CFI', 'CMO', 'COPP', 'DX',
+           'EBBP', 'EFI', 'EMV', 'Function', 'IFT_RSI', 'IMI', 'KST', 'MA', 'MACD', 'MACDEXT', 'MACDFIX', 'MFI', 'MI',
+           'MINUS_DI', 'MINUS_DM', 'MOM', 'PLUS_DI', 'PLUS_DM', 'PPO', 'ROC', 'ROCP', 'ROCR', 'ROCR100', 'RSI', 'STOCH',
+           'STOCHD', 'STOCHF', 'STOCHRSI', 'TA', 'TRIX', 'TSI', 'ULTOSC', 'UO', 'VZO', 'WILLR', 'WTO']
 
 
 def MI(data, period=9):
@@ -654,7 +657,7 @@ def ROC(data, period=10):
     :return pd.Series: with indicator data calculation results
     """
     fn = Function('ROC')
-    return fn(data, period)
+    return fn(data, timeperiod=period)
 
 
 def ROCP(data, period=10):
@@ -774,7 +777,7 @@ def STOCHF(data, fastk_period=5, fastd_period=3, fastd_ma_type=0):
     """
     fn = Function('STOCHF')
     return fn(data, fastk_period=fastk_period, fastd_period=fastd_period,
-              fastd_ma_type=fastd_ma_type)
+              fastd_matype=fastd_ma_type)
 
 
 def STOCHRSI(data, period=14, fastk_period=5, fastd_period=3, fastd_ma_type=0):
@@ -791,7 +794,7 @@ def STOCHRSI(data, period=14, fastk_period=5, fastd_period=3, fastd_ma_type=0):
     fn = Function('STOCHRSI')
     return fn(data, period, fastk_period=fastk_period,
               fastd_period=fastd_period,
-              fastd_ma_type=fastd_ma_type)
+              fastd_matype=fastd_ma_type)
 
 
 def TRIX(data, period=30):
@@ -860,7 +863,7 @@ def WILLR(data, period=14):
     close, high, low = data['close'], data['high'], data['low']
     while i < len(close):
         if i + 1 < period:
-            willr = float('NaN')
+            willr = float(' NaN')
         else:
             start = i + 1 - period
             end = i + 1
@@ -869,5 +872,7 @@ def WILLR(data, period=14):
         willr_list.append(willr)
         i += 1
     return willr_list
-    # fn = Function('WILLR')
-    # return fn(data, period)
+
+
+if __name__ == '__main__':
+    print(str(getattr(__import__('momentum'), 'TRIX')))

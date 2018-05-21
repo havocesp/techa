@@ -1,30 +1,21 @@
 # -*- coding:utf-8 -*-
-import talib
+import importlib
 
-import cycle
-import experimental
-import momentum
-import overlap
-import pattern
-import prices
-import statistic
-import volatility
-import volume
+_groups_functions = {
+    'cycle': [d for d in dir(importlib.import_module('cycle')) if d[0].isupper()],
+    'momentum': [d for d in dir(importlib.import_module('momentum')) if d[0].isupper()],
+    'overlap': [d for d in dir(importlib.import_module('overlap')) if d[0].isupper()],
+    'pattern': [d for d in dir(importlib.import_module('pattern')) if d[0].isupper()],
+    'statistic': [d for d in dir(importlib.import_module('statistic')) if d[0].isupper()],
+    'volume': [d for d in dir(importlib.import_module('volume')) if d[0].isupper()],
+    'volatility': [d for d in dir(importlib.import_module('volatility')) if d[0].isupper()],
+    'price': [d for d in dir(importlib.import_module('prices')) if d[0].isupper()],
+    'experimental': [d for d in dir(importlib.import_module('experimental')) if d[0].isupper()]
+}
 
-# from cycle import *
-# from momentum import *
-# from overlap import *
-# from pattern import *
-# from statistic import *
-# from volatility import *
-# from experimental import *
-# from prices import *
-# from volume import *
+_function_list = sum([k for k in _groups_functions.values()], [])
 
-_function_list = [f for f in
-                  (*cycle.__all__, *momentum.__all__, *overlap.__all__, *volatility.__all__, *pattern.__all__,
-                   *statistic.__all__, *experimental.__all__, *prices.__all__) if f[0].isupper()]
-__all__ = ['TaLib']
+__all__ = ['TaLib'] + _function_list
 
 
 # noinspection SpellCheckingInspection
@@ -33,22 +24,21 @@ class TaLib:
     Technical Analysis Library
     """
 
-    _groups_ref = {
-        'cycle': cycle.__all__,
-        'momentum': momentum.__all__,
-        'overlap': overlap.__all__,
-        'patter': pattern.__all__,
-        'statistic': statistic.__all__,
-        'volume': volatility.__all__,
-        'volatility': experimental.__all__,
-        'price': prices.__all__,
-        'experimental': volume.__all__
-    }
+    # Possible values: [ "talib" | "finta" ]
+    # This attribute set a technical library as primary so the setted one (if possible) will be used .
+    lib = 'talib'
 
     @classmethod
-    def calculate_indicator(cls, indicator, *args, **kwargs):
-        fn = globals().get(indicator)
-        return fn(*args, **kwargs)
+    def calculate_indicator(cls, indicator, data, *args, **kwargs):
+
+        indicator = str(indicator).upper()
+        fn = None
+        for k, v in _groups_functions.items():
+            if indicator in v:
+                mod = importlib.import_module(k)
+                fn = getattr(mod, indicator)
+
+        return fn(data, *args, **kwargs)
 
     @classmethod
     def get_groups(cls):
@@ -58,16 +48,7 @@ class TaLib:
         :return: groups names
         """
 
-        return sorted([*cls._groups_ref])
-
-    @classmethod
-    def get_talib_groups(cls):
-        """
-        Just return groups names
-
-        :return: groups names
-        """
-        return sorted([*talib.get_function_groups().keys()])
+        return sorted([k for k in _groups_functions.keys()])
 
     @classmethod
     def get_functions(cls):
@@ -76,18 +57,4 @@ class TaLib:
 
         :return: all functions supported by this lib
         """
-
-        return sorted(sum(cls._groups_ref.values(), []))
-
-    @classmethod
-    def get_talib_functions(cls):
-        """
-        Return all functions supported by this lib
-
-        :return: all functions supported by this lib
-        """
-        return sorted([*talib.get_function_groups().values()])
-
-
-if __name__ == '__main__':
-    print(TaLib.get_functions())
+        return sorted(_function_list)

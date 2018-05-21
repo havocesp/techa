@@ -4,25 +4,25 @@ Python Technical Analysis library
 """
 import os
 import sys
-
-import cycle
-import experimental
-import momentum
-import overlap
-import pattern
-import prices
-import statistic
-import volatility
-
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(BASE_DIR)
+# from cycle import *
+# from experimental import *
+# from momentum import *
+# from overlap import *
+# from pattern import *
+# from prices import *
+# from statistic import *
+# from volatility import *
+# from volume import *
+
+from techa.core import TaLib, __all__ as all_
 
 __author__ = 'Daniel J. Umpierrez'
-__version__ = '0.0.5'
+__version__ = '0.1.0'
+__package__ = 'techa'
 
-__all__ = (*cycle.__all__, *momentum.__all__, *overlap.__all__, *volatility.__all__, *pattern.__all__,
-           *statistic.__all__, *experimental.__all__, *prices.__all__, 'ASI', 'SI')
-
+__all__ = ['ASI', 'SI', 'TaLib', *all_]
 
 def ASI(data, l):
     """

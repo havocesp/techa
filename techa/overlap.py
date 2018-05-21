@@ -125,7 +125,6 @@ def ER(data, period=10, price='close'):
     vol = data[price].diff().abs().rolling(window=period).sum()
     return pd.Series(change / vol)
 
-    # return TA.ER(data, period)
 
 
 def VAMA(data, period=8, column='close'):
@@ -268,7 +267,6 @@ def APZ(data, period=21, dev_factor=2, ma_type=None):
     :param int ma_type: moving average type (0 simple, 1 exponential)
     :return pd.Series: with indicator data calculation results
     """
-
     return TA.APZ(data, period, dev_factor, ma_type)
 
 
@@ -521,80 +519,7 @@ def SAR(data, accel=0.02, max_accel=0.2):
     :param float max_accel: max acceleration factor
     :return pd.Series: with indicator data calculation results with indicator data calculation results
     """
-    # sar_list = []
-    # i = 0
-    #
-    # while i < len(data['close']):
-    #     if i < 1:
-    #         sar = float('NaN')
-    #         sar_list.append(sar)
-    #         is_long = True
-    #         sar = data['low'][i]
-    #         ep = data['high'][i]
-    #         af = accel
-    #     else:
-    #         if is_long:
-    #             if data['low'][i] <= sar:
-    #                 is_long = False
-    #                 sar = ep
-    #                 if sar < data['high'][i - 1]:
-    #                     sar = data['high'][i - 1]
-    #                 if sar < data['high'][i]:
-    #                     sar = data['high'][i]
-    #                 sar_list.append(sar)
-    #                 af = accel
-    #                 ep = data['low'][i]
-    #                 sar = sar + af * (ep - sar)
-    #                 #                    sar = round(sar)
-    #                 if sar < data['high'][i - 1]:
-    #                     sar = data['high'][i - 1]
-    #                 if sar < data['high'][i]:
-    #                     sar = data['high'][i]
-    #             else:
-    #                 sar_list.append(sar)
-    #                 if data['high'][i] > ep:
-    #                     ep = data['high'][i]
-    #                     af += accel
-    #                     if af > max_accel:
-    #                         af = max_accel
-    #                 sar = sar + af * (ep - sar)
-    #                 #                    sar = round(sar)
-    #                 if sar > data['low'][i - 1]:
-    #                     sar = data['low'][i - 1]
-    #                 if sar > data['low'][i]:
-    #                     sar = data['low'][i]
-    #         else:
-    #             if data['high'][i] >= sar:
-    #                 is_long = True
-    #                 sar = ep
-    #                 if sar > data['low'][i - 1]:
-    #                     sar = data['low'][i - 1]
-    #                 if sar > data['low'][i]:
-    #                     sar = data['low'][i]
-    #                 sar_list.append(sar)
-    #                 af = accel
-    #                 ep = data['high'][i]
-    #                 sar = sar + af * (ep - sar)
-    #                 #                    sar = round(sar)
-    #                 if sar > data['low'][i - 1]:
-    #                     sar = data['low'][i - 1]
-    #                 if sar > data['low'][i]:
-    #                     sar = data['low'][i]
-    #             else:
-    #                 sar_list.append(sar)
-    #                 if data['low'][i] < ep:
-    #                     ep = data['low'][i]
-    #                     af += accel
-    #                     if af > max_accel:
-    #                         af = max_accel
-    #                 sar = sar + af * (ep - sar)
-    #                 #                    sar = round(sar)
-    #                 if sar < data['high'][i - 1]:
-    #                     sar = data['high'][i - 1]
-    #                 if sar < data['high'][i]:
-    #                     sar = data['high'][i]
-    #     i += 1
-    # return pd.Series(sar_list, 'SAR')
+
     fn = Function('SAR')
     return fn(data, acceleration=accel, maximum=max_accel)
 
