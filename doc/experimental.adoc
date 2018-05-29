@@ -1,0 +1,222 @@
+== Experimental Indicators
+
+---
+
+=== SAVGP
+
+Swing Average Price.
+
+Previous Average Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SAVGPS
+
+Swing Average Price.
+
+Previous Average Price Summation.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SCO
+
+Swing Close.
+
+Open.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SCOS
+
+Swing Close.
+
+Open Summation.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SMEDP
+
+Swing Median Price.
+
+Previous Median Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SMEDPS
+
+Swing Median Price.
+
+Previous Median Price Summation.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+=== SPP
+
+Swing Price.
+
+Previous Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_price_
+|*str*
+|Column used for indicator calculation (default = "close")
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SPPS
+
+Swing Price.
+
+Previous Price Summation.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_price_
+|*str*
+|Column used for indicator calculation (default = "close")
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== STYPP
+
+Swing Typical Price.
+
+Previous Typical Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== STYPPS
+
+Swing Typical Price.
+
+Previous Typical Price Summation.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SWCLP
+
+Swing Weighted Close Price.
+
+Previous Weighted Close Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+=== SWCLPS
+
+Swing Weighted Close Price.
+
+Previous Weighted Close Price Summation.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results with indicator data calculation results.
+|===
+
+---

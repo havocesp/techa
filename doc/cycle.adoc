@@ -1,0 +1,101 @@
+== Cycle Indicators
+
+---
+
+=== HT_DCPERIOD
+
+Hilbert Transform.
+
+Dominant Cycle Period.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+
+=== HT_DCPHASE
+
+Hilbert Transform.
+
+Dominant Cycle Phase.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+
+=== HT_SINE
+
+Hilbert Transform.
+
+SineWave Indicator.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+=== HT_TRENDMODE
+
+Hilbert Transform.
+
+Trend vs Cycle Mode.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+=== HT_PHASOR
+
+Hilbert Transform.
+
+In-Phase Indicator.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+
+:return pd.Series: with indicator data calculation results
+
+=== WCLPRICE
+
+Weighted Close Price
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---

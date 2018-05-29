@@ -1,0 +1,1225 @@
+== Momentum Indicators
+
+---
+
+
+== ADX
+
+Average Directional Movement Index.
+
+ADX is 100 * smoothed moving average of absolute value (DMI +/-) divided by (DMI+ + DMI-).
+
+ADX does not indicate trend direction or momentum, only trend strength.
+
+Generally, ADX readings below 20 indicate trend weakness, and readings above 40 indicate trend strength.
+
+An extremely strong trend is indicated by readings above 50.
+
+
+|===
+|Parameter |Type |Description
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance containing open, high, low, close columns.
+|_return_|*Series*| Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== ADXR
+
+Average Directional Movement Index Rating.
+
+|===
+|Parameter |Type |Description
+|_data_
+|*DataFrame*
+|pandas DataFrame with open, high, low, close data.
+|period
+|int
+|period used for indicator calculation.
+|_return_
+|*Series*
+| Pandas Series with indicator data calculation results.
+|===
+
+---
+
+
+=== APO
+
+Absolute Price Oscillator
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_fast_period_
+|*int*
+| fast period used for indicator calculation..
+|_slow_period_
+|*int*
+| slow period used for indicator calculation..
+|_ma_type_
+|*int*
+| moving average type (0 simple, 1 exponential).
+str price: column used for indicator calculation (default = "close")
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== AROON
+
+Aroon indicator
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+| up and down indicators from data calculation..
+|===
+
+---
+
+=== AROONOSC
+
+Aroon Oscillator.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+
+=== ATR
+
+Average True Range.
+
+ATR is moving average of True Range.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== BASP
+
+Buy and Sell Pressure.
+
+BASP indicator serves to identify buying and selling pressure.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== BASPN
+
+Buy and Sell Pressure Normalized.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== BOP
+
+Balance of Power Indicator.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== CCI
+
+Commodity Index Channel.
+
+CCI is a versatile indicator that can be used to identify a new trend or warn of extreme conditions.
+
+CCI measures the current price level relative to an average price level over a given period of time.
+
+The CCI typically oscillates above and below a zero line. Normal oscillations will occur within the range of
++100 and −100.
+
+Readings above +100 imply an overbought condition, while readings below −100 imply an oversold condition.
+
+As with other overbought/oversold indicators, this means that there is a large probability that the price will
+correct to more representative levels.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== CFI
+
+Cumulative Force Index.
+
+Adopted from Elder's Force Index (EFI).
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== CMO
+
+Chaikin Momentum Oscillator.
+
+CMO is an oscillator that measures the accumulation/distribution line of the moving average convergence
+divergence (MACD).
+
+The Chaikin oscillator is calculated by subtracting a 10-day exponential moving average (EMA) of the
+ADL from a three-day EMA of the ADL, and highlights the momentum implied by the ADL.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== COPP
+
+Coppock Curve.
+
+COPP is a momentum indicator, it signals buying opportunities when the indicator moved from negative territory
+to positive territory.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== DX
+
+Directional Movement Index
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== EBBP
+
+Bull power and bear power by Dr. Alexander Elder
+
+EBBP show where today’s high and low lie relative to the a 13-day EMA
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== EFI
+
+Elder Force Index
+
+EFI is an indicator that uses price and volume to assess the power behind a move or identify possible turning
+points.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== EMV
+
+Ease of Movement.
+
+EMV is a volume-based oscillator that fluctuates above and below the zero line.
+
+As its name implies, it is designed to measure the "ease" of price movement.
+
+Prices are advancing with relative ease when the oscillator is in positive territory.
+
+Conversely, prices are declining with relative ease when the oscillator is in negative territory.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series with indicator data calculation results.
+|===
+
+---
+
+
+=== IFT_RSI
+
+Modified Inverse Fisher Transform applied on RSI.
+
+Suggested method to use any IFT indicator is to buy when the indicator crosses over –0.5 or crosses over +0.5
+
+if it has not previously crossed over –0.5 and to sell short when the indicators crosses under +0.5 or crosses
+under –0.5 if it has not previously crossed under +0.5.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_rsi_period_
+|*int*
+| pandas DataFrame with open, high, low, close data.
+|_wma_period_
+|*int*
+| pandas DataFrame with open, high, low, close data.
+|_return_
+|*Series*
+|Pandas Series with indicator data calculation results.
+|===
+
+---
+
+
+=== IMI
+
+Inter-day Momentum Index.
+
+Source: http://www.fmlabs.com/reference/default.htm?url=IMI.htm[http://www.fmlabs.com/reference/default.htm?url=IMI.htm]
+
+---
+
+
+=== KST
+
+Know Sure Thing.
+
+KST is a momentum oscillator based on the smoothed rate-of-change for four different time frames.
+
+KST measures price momentum for four different price cycles. It can be used just like any momentum oscillator.
+
+Chartists can look for divergences, overbought/oversold readings, signal line crossovers and center-line
+crossovers.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_r1_
+|*int*
+|Time period used at first ROC calculation.
+|_r2_
+|*int*
+|Time period used at second ROC calculation.
+|_r3_
+|*int*
+|Time period used at third ROC calculation.
+|_r4_
+|*int*
+|Time period used at last ROC calculation.
+|_return_
+|*Series*
+|Pandas Series with indicator data calculation results.
+|===
+
+---
+
+
+=== MA
+
+Moving Average.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_ma_type_
+|*int*
+| moving average type (0 simple, 1 exponential).
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== MACD
+
+Moving Average Convergence Divergence.
+
+The MACD Line oscillates above and below the zero line, which is also known as the center-line.
+
+These crossovers signal that the 12-day EMA has crossed the 26-day EMA. The direction, of course, depends on
+the direction of the moving average cross.
+
+Positive MACD indicates that the 12-day EMA is above the 26-day EMA. Positive values increase as the shorter
+EMA diverges further from the longer EMA.
+
+This means upside momentum is increasing. Negative MACD values indicates that the 12-day EMA is below the
+26-day EMA.
+
+Negative values increase as the shorter EMA diverges further below the longer EMA. This means downside momentum
+is increasing.
+
+Signal line crossovers are the most common MACD signals. The signal line is a 9-day EMA of the MACD Line.
+
+As a moving average of the indicator, it trails the MACD and makes it easier to spot MACD turns.
+
+A bullish crossover occurs when the MACD turns up and crosses above the signal line.
+
+A bearish crossover occurs when the MACD turns down and crosses below the signal line.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_slow_period_
+|*int*
+| slow period used for indicator calculation..
+|_fast_period_
+|*int*
+| fast period used for indicator calculation..
+|_signal_
+|*int*
+| period used for signal calculation..
+str price: column used for indicator calculation (default = "close")
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== MACDEXT
+
+Moving Average Convergence Divergence - Extended
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_fast_period_
+|*int*
+| fast period used for indicator calculation..
+|_fast_ma_type_
+|*int*
+| fast moving average type (0 simple, 1 exponential).
+|_slow_period_
+|*int*
+| slow period used for indicator calculation..
+|_slow_ma_type_
+|*int*
+| slow moving average type (0 simple, 1 exponential).
+|_signal_period_
+|*int*
+| period used for signal calculation..
+|_signal_ma_type_
+|*int*
+| signal moving average type (0 simple, 1 exponential).
+|_return_
+|*Series*
+| with indicator data calculation results with indicator data calculation results.
+|===
+
+---
+
+
+=== MACDFIX
+
+Moving Average Convergence/Divergence Fix 12/26
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_signal_period_
+|*int*
+| period used for signal calculation..
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== MFI
+
+Money Flow Indicator.
+
+MFI is a momentum indicator that measures the inflow and outflow of money into a security over a specific
+period of time.
+
+MFI can be understood as RSI adjusted for volume.
+
+The money flow indicator is one of the more reliable indicators of overbought and oversold conditions, perhaps
+partly because it uses the higher readings of 80 and 20 as compared to the RSI's overbought/oversold readings
+of 70 and 30.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== MI
+
+Mass Index.
+
+MI uses the high-low range to identify trend reversals based on range expansions.
+
+In this sense, the Mass Index is a volatility indicator that does not have a directional bias.
+
+Instead, the Mass Index identifies range bulges that can foreshadow a reversal of the current trend.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== MINUS_DI
+
+Minus Directional indicator.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== MINUS_DM
+
+Minus Directional Movement indicator.
+
+DM is a valuable tool for assessing price direction and strength.
+
+This indicator was created in 1978 by J. Welles Wilder, who also created the popular relative strength index.
+
+DMI tells you when to be long or short.
+
+It is especially useful for trend trading strategies because it differentiates between strong and weak trends,
+allowing the trader to enter only the strongest trends.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== MOM
+
+Momentum Indicator.
+
+MOM is measured by continually taking price differences for a fixed time interval.
+
+To construct a 10-day momentum line, simply subtract the closing price 10 days ago from the last closing price.
+
+This positive or negative value is then plotted around a zero line.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== PLUS_DI
+
+Plus Directional Index indicator.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== PLUS_DM
+
+Plus Directional Movement indicator.
+
+DM is a valuable tool for assessing price direction and strength.
+
+This indicator was created in 1978 by J. Welles Wilder, who also created the popular relative strength index.
+
+DMI tells you when to be long or short.
+
+It is especially useful for trend trading strategies because it differentiates between strong and weak trends,
+allowing the trader to enter only the strongest trends.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== PPO
+
+Percentage Price Oscillator.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_fast_period_
+|*int*
+| fast period used for indicator calculation..
+|_slow_period_
+|*int*
+| slow period used for indicator calculation..
+|_ma_type_
+|*int*
+| moving average type (0 simple, 1 exponential).
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== ROC
+
+Rate of Change.
+
+ROC is a pure momentum oscillator that measures the percent change in price from one period to the next.
+
+The ROC calculation compares the current price with the price “n” periods ago.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== ROCP
+
+Rate of Change.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== ROCR
+
+Rate of Change.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== ROCR100
+
+Rate of Change as 100 percentage.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== RSI
+
+Relative Strength Index.
+
+RSI is a momentum oscillator that measures the speed and change of price movements.
+
+RSI oscillates between zero and 100. Traditionally, and according to Wilder, RSI is considered overbought when
+above 70 and oversold when below 30.
+
+Signals can also be generated by looking for divergences, failure swings and center-line crossovers.
+
+RSI can also be used to identify the general trend.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation period used for indicator calculation.
+|_price_
+|*str*
+|Column used for indicator calculation (default = "close")
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== STOCH
+
+Stochastic Oscillator.
+
+The Stochastic Oscillator is a momentum indicator comparing the closing price of a security to the range of it's
+prices over a certain period of time.
+
+The sensitivity of the oscillator to market movements is reducible by adjusting that time period or by taking a
+moving average of the result.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_fastk_period_
+|*int*
+| period used for K fast indicator calculation..
+|_slowk_period_
+|*int*
+| period used for K slow indicator calculation..
+|_slowk_ma_type_
+|*int*
+| slow K moving average type (0 simple, 1 exponential).
+|_slowd_period_
+|*int*
+| period used for D slow indicator calculation..
+|_slowd_ma_type_
+|*int*
+| slow D moving average type (0 simple, 1 exponential).
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== STOCHD
+
+Stochastic Oscillator %D
+
+STOCH %D is a 3 period simple moving average of %K.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== STOCHF
+
+Stochastic %F
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_fastk_period_
+|*int*
+| period used for K fast indicator calculation..
+|_fastd_period_
+|*int*
+| period used for D fast indicator calculation..
+|_fastd_ma_type_
+|*int*
+| fast D moving average type (0 simple, 1 exponential).
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== STOCHRSI
+
+Stochastic RSI.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+| RSI period
+
+|_fastk_period_
+|*int*
+| period used for K fast indicator calculation..
+|_fastd_period_
+|*int*
+| period used for D fast indicator calculation..
+|_fastd_ma_type_
+|*int*
+| fast D moving average type (0 simple, 1 exponential).
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== TRIX
+
+Triple Exponential Moving Average Oscillator.
+
+The TRIX is a momentum indicator that oscillates around zero.
+
+It displays the percentage rate of change between two triple smoothed exponential moving averages.
+
+To calculate TRIX we calculate triple smoothed EMA3 of n periods and then subtracts previous period EMA3 value
+from last EMA3 value and divide the result with yesterdays EMA3 value.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series with indicator data calculation results.
+|===
+
+---
+
+
+=== TSI
+
+True Strength Index.
+
+TSI is a momentum oscillator based on a double smoothing of price changes.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_long_
+|*int*
+| long period used for indicator calculation..
+|_short_
+|*int*
+| short period used for indicator calculation..
+|_signal_
+|*int*
+| signal period used for indicator calculation..
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== ULTOSC
+
+Ultimate Oscillator.
+
+UO or ULTOSC is a momentum oscillator designed to capture momentum across three different time frames.
+
+The multiple time frame objective seeks to avoid the pitfalls of other oscillators.
+
+Many momentum oscillators surge at the beginning of a strong advance and then form bearish divergence as the
+advance continues.
+
+This is because they are stuck with one time frame. The Ultimate Oscillator attempts to correct this fault by
+incorporating longer time frames into the basic formula.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period1_
+|*int*
+|First time period used for indicator calculation period used for indicator calculation.
+|_period2_
+|*int*
+|Second time period used for indicator calculation period used for indicator calculation.
+|_period3_
+|*int*
+|Third time period used for indicator calculation period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series with indicator data calculation results.
+|===
+
+---
+
+
+=== UO
+
+Ultimate Oscillator.
+
+UO is a momentum oscillator designed to capture momentum across three different time frames.
+
+The multiple time frame objective seeks to avoid the pitfalls of other oscillators.
+
+Many momentum oscillators surge at the beginning of a strong advance and then form bearish divergence as the
+advance continues.
+
+This is because they are stuck with one time frame. The Ultimate Oscillator attempts to correct this fault by
+incorporating longer time frames into the basic formula.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== VZO
+
+V Zone Oscillator.
+
+VZO uses price, previous price and moving averages to compute its oscillating value.
+
+It is a leading indicator that calculates buy and sell signals based on oversold / overbought conditions.
+
+Oscillations between the 5% and 40% levels mark a bullish trend zone, while oscillations between -40% and 5%
+mark a bearish trend zone.
+
+Meanwhile, readings above 40% signal an overbought condition, while readings above 60% signal an extremely
+overbought condition.
+
+Alternatively, readings below -40% indicate an oversold condition, which becomes extremely oversold below -60%.
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== WILLR
+
+Williams %R
+
+Williams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to
+the high and low of the past N days (for a given N).
+
+It was developed by a publisher and promoter of trading materials, Larry Williams.
+
+It's purpose is to tell whether a stock or commodity market is trading near the high or the low, or somewhere in
+between, of its recent trading range.
+
+The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest).
+
+|===
+|Parameter|Type|Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+
+=== WTO
+
+Wave Trend Oscillator.
+
+|===
+|Parameter |Type |Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance open, high, low, close columns.
+|_channel_length_
+|*int*
+|Channel length value.
+|_average_length_
+|*int*
+|Average length value.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+

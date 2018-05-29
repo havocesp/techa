@@ -1,0 +1,942 @@
+== Pattern Recognition
+
+=== ABANDONED_BABY
+
+Abandoned Baby
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== ADVANCE_BLOCK
+
+Advance Block
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== BELT_HOLD
+
+Belt-hold
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== BREAKAWAY
+
+Breakaway
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== CLOSING_MARUBOZU
+
+Closing Marubozu
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== CONCEAL_BABY_SWALL
+
+Concealing Baby Swallow
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== COUNTER_ATTACK
+
+Counterattack
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== DARK_CLOUD_COVER
+
+Dark Cloud Cover
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== DOJI
+
+Doji
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== DOJI_STAR
+
+Doji Star
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== DRAGON_FLY_DOJI
+
+Dragon Fly Doji
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== ENGULFING
+
+Engulfing Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== EVENING_DOJI_STAR
+
+Evening Doji Star
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== EVENING_STAR
+
+Evening Star
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== GAP_SIDE_SIDE_WHITE
+
+Gap Side
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== GRAVESTONE_DOJI
+
+Gravestone Doji
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HAMMER
+
+Hammer
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HANGING_MAN
+
+Hanging Man
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HARAMI
+
+Harami Patter
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HARAMI_CROSS
+
+Harami Cross Patter
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HIGH_WAVE
+
+High Wave Candle
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HIKKAKE
+
+Hikkake Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HIKKAKE_MOD
+
+Modified Hikkake Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== HOMING_PIGEON
+
+Homing Pigeon
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== IDENTICAL_THREE_CROWS
+
+Identical 3 Crows
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== INVERTED_HAMMER
+
+Inverted Hammer
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== IN_NECK
+
+In-Neck Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== KICKING
+
+Kicking
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== KICKING_BY_LENGTH
+
+Kicking - bull/bear determined by the longer marubozu
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== LADDER_BOTTOM
+
+Ladder Bottom
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== LONG_LEGGED_DOJI
+
+Long Legged Doji
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== LONG_LINE
+
+Long Line Candle
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== MARUBOZU
+
+Marubozu
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== MATCHING_LOW
+
+Matching Low
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== MAT_HOLD
+
+Mat Hold
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== MORNING_DOJI_STAR
+
+Morning Doji Star
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== MORNING_STAR
+
+Morning Star
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== ON_NECK
+
+On-Neck Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== PIERCING
+
+Piercing Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== RICK_SHAW_MAN
+
+Rickshaw Man
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== RISE_FALL_THREE_METHODS
+
+Rising/Falling Three Methods
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== SEPARATING_LINES
+
+Separating Lines
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== SHOOTING_STAR
+
+Shooting Star
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== SHORT_LINE
+
+Short Line Candle
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== SPINNING_TOP
+
+Spinning Top
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== STALLED_PATTERN
+
+Stalled Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== STICK_SANDWICH
+
+Stick Sandwich
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== TAKURI
+
+Takuri (Dragonfly Doji with very long lower shadow)
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== TASUKI_GAP
+
+Tasuki Gap
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== THREE_BLACK_CROWS
+
+Three Black Crows
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== THREE_INSIDE
+
+Three Inside Up/Down
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== THREE_LINE_STRIKE
+
+Three-Line Strike
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== THREE_OUTSIDE
+
+Three Outside Up/Down
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== THREE_STARSINSOUTH
+
+Three Stars In The South
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== THREE_WHITE_SOLDIERS
+
+Three Advancing White Soldiers
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== THRUSTING
+
+Thrusting Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== TRISTAR
+
+Tristar Pattern
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== TWO_CROWS
+
+Two Crows
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== UNIQUE_THREE_RIVER
+
+Unique 3 River
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== UPSIDE_GAP_TWO_CROWS
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== X_SIDE_GAP_THREE_METHODS
+
+Upside/Downside Gap Three Methods
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== detect_pattern
+
+Detect a candlestick pattern using a DataFrame.
+
+:param str pattern: name of pattern to be detected
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|For each DataFrame entry a 100, 0 or -100 value will be returned.
+|===
+
+---
+
+=== get_pattern_list
+
+Get all supported patters names as list
+
+|===
+|Paramter | Type | Description
+|_return_
+|*list*
+|Supported patters names as list.
+|===

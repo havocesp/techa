@@ -1,0 +1,117 @@
+== Statistics
+
+---
+
+=== BETA
+
+Beta function.
+
+|===
+|Parameter |Type | Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance with open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== CORREL
+
+Pearson's Correlation Coefficient (r).
+
+|===
+|Parameter |Type | Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance with open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== LINEARREG
+
+Linear Regression.
+
+|===
+|Parameter |Type | Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance with open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== LINEARREG_ANGLE
+
+Linear Regression Angle.
+
+|===
+|Parameter |Type | Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance with open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== LINEARREG_INTERCEPT
+
+Linear Regression Intercept.
+
+|===
+|Parameter |Type | Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance with open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---
+
+=== LINEARREG_SLOPE
+
+Linear Regression Slope.
+
+|===
+|Parameter |Type | Description
+|_data_
+|*DataFrame*
+|Pandas DataFrame instance with open, high, low, close columns.
+|_period_
+|*int*
+|Time period used for indicator calculation
+|_return_
+|*Series*
+|Pandas Series instance with indicator data calculation results.
+|===
+
+---

@@ -1,0 +1,87 @@
+== Volume Indicators
+
+---
+
+=== AD
+
+Accumulation Distribution Line Indicator.
+
+|===
+|Parameter |Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+
+=== WOBV
+
+Weighted On Balance Volume.
+
+|===
+|Parameter |Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+
+=== ADOSC
+
+Accumulation/Distribution Oscillator.
+
+|===
+|Parameter |Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_fast_period_
+|*int*
+|Fast time period used for indicator calculation.
+|_slow_period_
+|*int*
+|Slow time period used for indicator calculation.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+
+=== OBV
+
+On Balance Volume.
+
+OBV measures buying and selling pressure as a cumulative indicator that adds volume on up days and subtracts
+volume on down days.
+
+OBV was developed by Joe Granville and introduced in his 1963 book, Granville's New Key to Stock Market Profits.
+
+It was one of the first indicators to measure positive and negative volume flow.
+
+Chartists can look for divergences between OBV and price to predict price movements or use OBV to confirm price
+trends.
+
+|===
+|Parameter |Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+

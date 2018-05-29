@@ -1,0 +1,63 @@
+== Price Transform
+
+=== AVGPRICE
+
+Average Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+=== WCLPRICE
+
+Weighted Close Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+=== TYPPRICE
+
+Typical Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|*Series*
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
+
+=== MEDPRICE
+
+Median Price.
+
+|===
+|Parameter | Type |Description
+|_data_
+|*DataFrame*
+|Pandas *DataFrame* instance with open, high, low, close columns.
+|_return_
+|_Series_
+|Pandas *Series* instance with indicator data calculation results.
+|===
+
+---
