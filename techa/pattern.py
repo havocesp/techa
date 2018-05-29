@@ -19,7 +19,7 @@ __all__ = ['ABANDONED_BABY', 'ADVANCE_BLOCK', 'BELT_HOLD', 'BREAKAWAY', 'CLOSING
 def detect_pattern(pattern, data):
     """
     Detect a candlestick pattern using a DataFrame.
-    
+
     :param str pattern: name of pattern to be detected
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: for each DataFrame entry a 100, 0 or -100 will be returned
@@ -34,82 +34,6 @@ def get_pattern_list():
     :return list: patters names list
     """
     return [p for p in __all__ if p[0].isupper()]
-
-
-def TWO_CROWS(data):
-    """
-    Two Crows
-
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDL2CROWS')
-    return fn(data)
-
-
-def THREE_BLACK_CROWS(data):
-    """
-    Three Black Crows
-
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDL3BLACKCROWS')
-    return fn(data)
-
-
-def THREE_INSIDE(data):
-    """
-    Three Inside Up/Down
-
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDL3INSIDE')
-    return fn(data)
-
-
-def THREE_LINE_STRIKE(data):
-    """
-    Three-Line Strike
-
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDL3LINESTRIKE')
-    return fn(data)
-
-
-def THREE_OUTSIDE(data):
-    """
-    Three Outside Up/Down
-
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDL3OUTSIDE')
-    return fn(data)
-
-
-def THREE_STARSINSOUTH(data):
-    """
-    Three Stars In The South
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDL3STARSINSOUTH')
-    return fn(data)
-
-
-def THREE_WHITE_SOLDIERS(data):
-    """
-    Three Advancing White Soldiers
-
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDL3WHITESOLDIERS')
-    return fn(data)
 
 
 def ABANDONED_BABY(data):
@@ -387,17 +311,6 @@ def IDENTICAL_THREE_CROWS(data):
     return fn(data)
 
 
-def IN_NECK(data):
-    """
-    In-Neck Pattern
-
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('CDLINNECK')
-    return fn(data)
-
-
 def INVERTED_HAMMER(data):
     """
     Inverted Hammer
@@ -406,6 +319,17 @@ def INVERTED_HAMMER(data):
     :return pd.Series: with indicator data calculation results
     """
     fn = Function('CDLINVERTEDHAMMER')
+    return fn(data)
+
+
+def IN_NECK(data):
+    """
+    In-Neck Pattern
+
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDLINNECK')
     return fn(data)
 
 
@@ -653,6 +577,71 @@ def TASUKI_GAP(data):
     return fn(data)
 
 
+def THREE_BLACK_CROWS(data):
+    """
+    Three Black Crows
+
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDL3BLACKCROWS')
+    return fn(data)
+
+
+def THREE_INSIDE(data):
+    """
+    Three Inside Up/Down
+
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDL3INSIDE')
+    return fn(data)
+
+
+def THREE_LINE_STRIKE(data):
+    """
+    Three-Line Strike
+
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDL3LINESTRIKE')
+    return fn(data)
+
+
+def THREE_OUTSIDE(data):
+    """
+    Three Outside Up/Down
+
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDL3OUTSIDE')
+    return fn(data)
+
+
+def THREE_STARSINSOUTH(data):
+    """
+    Three Stars In The South
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDL3STARSINSOUTH')
+    return fn(data)
+
+
+def THREE_WHITE_SOLDIERS(data):
+    """
+    Three Advancing White Soldiers
+
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDL3WHITESOLDIERS')
+    return fn(data)
+
+
 def THRUSTING(data):
     """
     Thrusting Pattern
@@ -671,6 +660,17 @@ def TRISTAR(data):
     :return pd.Series: with indicator data calculation results
     """
     fn = Function('CDLTRISTAR')
+    return fn(data)
+
+
+def TWO_CROWS(data):
+    """
+    Two Crows
+
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
+    :return pd.Series: with indicator data calculation results
+    """
+    fn = Function('CDL2CROWS')
     return fn(data)
 
 
@@ -705,7 +705,3 @@ def X_SIDE_GAP_THREE_METHODS(data):
     """
     fn = Function('CDLXSIDEGAP3METHODS')
     return fn(data)
-
-
-if __name__ == '__main__':
-    print(dir(__import__(__name__)))

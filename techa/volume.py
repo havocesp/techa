@@ -1,5 +1,6 @@
+# -*- coding:utf-8 -*-
 """
-Volume Indicators
+Volume Indicators.
 """
 import pandas as pd
 from finta import TA
@@ -30,10 +31,10 @@ def AD(data):
 
 def WOBV(data):
     """
-    Weighted On Balance Volume
+    Weighted On Balance Volume.
 
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
+    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data.
+    :return pd.Series: with indicator data calculation results.
     """
 
     return TA.WOBV(data)
@@ -41,7 +42,7 @@ def WOBV(data):
 
 def ADOSC(data, fast_period=3, slow_period=10):
     """
-    Accumulation/Distribution Oscillator
+    Accumulation/Distribution Oscillator.
 
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :param int fast_period: fast period used for indicator calculation
@@ -54,7 +55,7 @@ def ADOSC(data, fast_period=3, slow_period=10):
 
 def OBV(data):
     """
-    On Balance Volume
+    On Balance Volume.
 
     OBV measures buying and selling pressure as a cumulative indicator that adds volume on up days and subtracts
     volume on down days.

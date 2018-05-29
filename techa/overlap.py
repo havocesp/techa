@@ -126,7 +126,6 @@ def ER(data, period=10, price='close'):
     return pd.Series(change / vol)
 
 
-
 def VAMA(data, period=8, column='close'):
     """
     Volume Adjusted Moving Average

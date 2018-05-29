@@ -1,8 +1,5 @@
 # -*- coding:utf-8 -*-
-import techa as ta
-
-# from techa.cycle import WCLPRICE
-# from techa.prices import TYPPRICE, AVGPRICE, MEDPRICE
+from prices import AVGPRICE, MEDPRICE, TYPPRICE, WCLPRICE
 
 __all__ = ['SAVGP', 'SAVGPS', 'SCO', 'SCOS', 'SMEDP', 'SMEDPS', 'SPP', 'SPPS', 'STYPP', 'STYPPS', 'SWCLP', 'SWCLPS']
 
@@ -17,7 +14,7 @@ def SAVGP(data):
     :return pd.Series: with indicator data calculation results
     """
     savgp_list = []
-    average_price_list = ta.AVGPRICE(data)
+    average_price_list = AVGPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:
@@ -103,7 +100,7 @@ def SMEDP(data):
     """
 
     smedp_list = []
-    median_price = ta.MEDPRICE(data)
+    median_price = MEDPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:
@@ -198,7 +195,7 @@ def STYPP(data):
     :return pd.Series: with indicator data calculation results
     """
     stypp_list = []
-    typical_price = ta.TYPPRICE(data)
+    typical_price = TYPPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:
@@ -245,7 +242,7 @@ def SWCLP(data):
     :return pd.Series: with indicator data calculation results
     """
     swclp_list = []
-    weighted_close_price = ta.WCLPRICE(data)
+    weighted_close_price = WCLPRICE(data)
     i = 0
     while i < len(data['close']):
         if i < 1:

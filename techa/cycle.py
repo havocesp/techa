@@ -5,7 +5,7 @@ Cycle Indicators
 import pandas as pd
 from talib.abstract import Function
 
-__all__ = ['HT_DCPERIOD', 'HT_DCPHASE', 'HT_SINE', 'HT_TRENDMODE', 'HT_PHASOR', 'WCLPRICE']
+__all__ = ['HT_DCPERIOD', 'HT_DCPHASE', 'HT_SINE', 'HT_TRENDMODE', 'HT_PHASOR']
 
 
 def HT_DCPERIOD(data):
@@ -71,12 +71,4 @@ def HT_TRENDMODE(data):
     return fn(data)
 
 
-def WCLPRICE(data):
-    """
-    Weighted Close Price
 
-    :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
-    :return pd.Series: with indicator data calculation results
-    """
-    fn = Function('WCLPRICE')
-    return fn(data)

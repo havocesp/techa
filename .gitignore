@@ -16,7 +16,3 @@ build/
 doc/
 source/
 techa.egg-info/
-techa/momentum.html
-techa/momentum.rst
-techa/__pycache__/
-techa/momentum.pyc

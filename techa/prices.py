@@ -18,7 +18,7 @@ __all__ = ['AVGPRICE', 'WCLPRICE', 'TYPPRICE', 'MEDPRICE']
 def AVGPRICE(data):
     """
     Average Price.
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -34,7 +34,7 @@ def AVGPRICE(data):
 def MEDPRICE(data):
     """
     Median Price
-    
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -49,8 +49,8 @@ def MEDPRICE(data):
 
 def TYPPRICE(data):
     """
-    Typical Price        
-    
+    Typical Price
+
     :param pd.DataFrame data: pandas DataFrame with open, high, low, close data
     :return pd.Series: with indicator data calculation results
     """
@@ -77,3 +77,4 @@ def WCLPRICE(data):
         wclprice_list.append(wclprice)
         i += 1
     return pd.Series(wclprice_list, name='WCLPRICE')
+
