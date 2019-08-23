@@ -1,10 +1,10 @@
 # TECHA: Technical Analysis Library
 
-Collection of Technical Analysis Functions
+A collection of Technical Analysis Functions.
 
  * __Author__: Daniel J. Umpierrez
  * __Version__: 0.1.1
- * __License__: MIT
+ * __License__: UNLICENSE
 
 ## Description
 
@@ -21,8 +21,7 @@ like finta, ta-lib, ... into one.
 ## Version 0.1.1
 
  * New TaLib class method structure for easy access to all functions
- * Dome function documentation writed (take a look at "doc" directory)
- *
+ * Some function documentation writed (take a look at "doc" directory) 
 
 ## Version 0.1.0
 
