@@ -1,2 +1,1 @@
 pandas
-pandas=>23.0
